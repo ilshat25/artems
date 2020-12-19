@@ -15,7 +15,15 @@ for i in range(1, n+1):
     for j in range(n):
         for k in range(n):
             if M[j][k] > 0 and res[i-1][j] + M[j][k] > res[i][k]:
-                res[i][k] = max(res[i][k], res[i-1][j] + M[j][k])
+                idxt = j
+                flg = False
+                for c in range(i-1, 0, -1): 
+                    if idxt == k and pr[c][idxt] == j:
+                        flg = True
+                        break
+                    idxt = pr[c][idxt]
+                if flg: break
+                res[i][k] = res[i-1][j] + M[j][k]
                 pr[i][k] = j
 
 idx = 0
