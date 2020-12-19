@@ -39,7 +39,7 @@ for tt in range(t):
         if pr[i][idx] != idx:
             ans.append(M[pr[i][idx]][idx])
         idx = pr[i][idx]
-    if len(ans) < n: continue
+
     for el in reversed(ans):
         print(el, end = ' ')
     print()
